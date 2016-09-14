@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void bsort(int[], int);
+
+int main()
+{
+    int count[100],x,i=0,b=10,j=0,swap;
+	int gen = 0;
+	srand(time(NULL));
+	while(x !=5){
+	printf("Choose an option:\n1. Generate numbers in columns and print.\n2. Sort the numbers.\n");
+	scanf("%d",&x);
+	
+	/* The Menu	*/
+	if(x==1 && gen == 0) //First option | Generate and display numbers
+		{
+			gen = 1;
+			for (i=0;i<100;i++)
+			{
+				count[i] = rand() % 901;
+			}
+			do
+			{
+				for (int i;i<b;i++)
+				{
+				printf("%4.0d",count[i]);
+				}
+				printf("\n");
+				i = i + 10;
+				b = b + 10;
+				j++;
+			}while(j != 10);
+		}
+		else if(x==2 && gen == 1 ) // 2nd option | Bubble Sorting
+		{
+			bsort(count, 100);
+			printf("\nThe Numbers Sorted: \n");
+
+			for (i=0;i<100;i++)
+			{
+				printf("%5d", count[i]);
+			}
+			printf("\n\n");
+		}
+		
+		
+		
+		
+		
+		
+		
+		/* Failures */
+		else if(x==1 && gen == 1) // 1st option fail
+		{
+			printf("\nYou already generated the numbers!\n");
+		}
+		else if(x==2 && gen == 0) // 2nd option fail
+		{
+			printf("\nGenerate the numbers first!\n");
+			getchar();
+		}
+	}
+    return 0;
+}
+
+
+
+
+
+
+
+
+/* Functions */
+
+void bsort(int scount[], int num) // Bubble Sorting
+{
+	int i, j, temp;
+	for (i = 1; i < num; i++) 
+	{
+      for (j = 0; j < num - 1; j++) 
+	  {
+         if (scount[j] > scount[j + 1]) 
+		 {
+            temp = scount[j];
+            scount[j] = scount[j + 1];
+            scount[j + 1] = temp;
+         }
+      }
+	}
+}
