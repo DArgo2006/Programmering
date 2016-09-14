@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+
+float lika(float a,float b);
+double hyp(double k1, double k2);
+int adderaMedResultat(int x,int y);
+int addera(int x,int y);
+
+int main()
+{
+    int x,y,c;
+    double k1,k2;
+    float a,b;
+    printf("Pick a function \n1. Addera\n2. Addera med return resultat\n3. Lika stora?\n4. Hypotenusa\nEnter choice:   ");
+    scanf("%d", &c);
+
+
+    switch(c)
+    {
+    case 1:
+        printf("Enter first number: ");
+        scanf("%d", &x);
+        printf("Enter second number: ");
+        scanf("%d", &y);
+        addera(x,y);
+        break;
+    case 2:
+        printf("Enter first number: ");
+        scanf("%d", &x);
+        printf("Enter second number: ");
+        scanf("%d", &y);
+        printf("%d",adderaMedResultat(x,y));
+        break;
+    case 3:
+        printf("Enter first number: ");
+        scanf("%f", &a);
+        printf("Enter second number: ");
+        scanf("%f", &b);
+        lika(a,b);
+        break;
+    case 4:
+        printf("Enter first katet: ");
+        scanf("%lf", &k1);
+        printf("Enter second katet: ");
+        scanf("%lf", &k2);
+        hyp(k1,k2);
+        break;
+    }
+
+
+}
+
+
+
+
+// The functions
+int addera(int x,int y) // Addera
+{
+    int res;
+    res=x+y;
+    printf("Result: %d\n\n",res);
+    system("PAUSE");
+}
+
+int adderaMedResultat(int x,int y) // Addera med return resultat
+{
+    return x+y;
+}
+
+float lika(float a,float b) // kolla om två tal är lika.
+{
+    if(a ==  b)
+    {
+        printf("True");
+        return true;
+    } else
+    {
+        printf("False");
+        return false;
+    }
+}
+
+double hyp(double k1, double k2) // Räkna fram hypotenusa
+{
+    double res;
+    if(k1 < 0 || k2 < 0){
+        printf("Kateterna får inte vara negativa!\n\n");
+    } else{
+    res = sqrt((pow(k1,2.0) + pow(k2,2.0)));
+    printf("Hypotenusan  är: %f\n\n", res);
+    system("PAUSE");
+    }
+}
